@@ -7,6 +7,7 @@ See https://docs.docker.com/install
 
 Images are stored on Docker Hub under the organization `i4ds`. Therefore you need to create an account on `https://hub.docker.com/` and ask (e.g. Fabian Märki) for access to `i4ds`.
 
+
 # Setup DataScience Environment 
 
 Modify the [Dockerfile](Dockerfile) according your needs.
@@ -18,6 +19,19 @@ docker build --no-cache=true -t i4ds/datascience-notebook .
 
 docker login
 docker push i4ds/datascience-notebook
+```
+
+It is also possible to add additional dependencies to your local instance (i.e. in case you want to test something before you add it to the [Dockerfile](Dockerfile).
+ 
+```bash
+# set the path to your Jupyter Notebook files
+JUPYTER_FILES=$PWD
+# run the Jupyter Notebook allowing root access 
+docker run --name datascience-notebook -p 8888:8888 -e GRANT_SUDO=yes -v "${JUPYTER_FILES}":/home/jovyan/work -d jupyter/datascience-notebook start-notebook.sh --NotebookApp.token=''
+# run a console where you can add dependencies (e.g. apt-get install <your dependency>)
+docker exec -it --user root datascience_notebook start.sh
+# start your browser (in a different console - e.g. test on a Notebook if the dependency is now available)
+firefox http://127.0.0.1:8888
 ```
 
 # Run Jupyter Notebook
