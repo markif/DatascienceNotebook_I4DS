@@ -28,6 +28,8 @@ Run the Jupyter Notebook with disabled authentication (not a recommended practic
 # set the path to your Jupyter Notebook files
 JUPYTER_FILES=$PWD
 docker run --name datascience-notebook --net=dbnet -p 8888:8888 -v "$JUPYTER_FILES":/home/jovyan/work -d i4ds/datascience-notebook start-notebook.sh --NotebookApp.token=''
+# start your browser
+firefox http://127.0.0.1:8888
 ```
 
 Run the Jupyter Notebook with authentication (see console output for the url to use in your browser).
