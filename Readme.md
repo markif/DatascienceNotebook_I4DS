@@ -27,7 +27,7 @@ It is also possible to add additional dependencies to your local instance (i.e. 
 # set the path to your Jupyter Notebook files
 JUPYTER_FILES=$PWD
 # run the Jupyter Notebook allowing root access 
-docker run --name datascience-notebook -p 8888:8888 -e GRANT_SUDO=yes -v "${JUPYTER_FILES}":/home/jovyan/work -d jupyter/datascience-notebook start-notebook.sh --NotebookApp.token=''
+docker run --name datascience-notebook -p 8888:8888 -e GRANT_SUDO=yes -v "${JUPYTER_FILES}":/home/jovyan/work -d i4ds/datascience-notebook start-notebook.sh --NotebookApp.token=''
 # run a console where you can add dependencies (e.g. apt-get install <your dependency>)
 docker exec -it --user root datascience_notebook start.sh
 # start your browser (in a different console - e.g. test on a Notebook if the dependency is now available)

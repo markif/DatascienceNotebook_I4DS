@@ -1,9 +1,9 @@
-from jupyter/datascience-notebook
+from jupyter/datascience-notebook:abdb27a6dfbb
 
 USER root
 
 # libpq-dev -> postgres library
-RUN sudo apt-get update && sudo apt-get install -y libpq-dev
+RUN sudo apt-get update && sudo apt-get install -y libpq-dev unixodbc unixodbc-dev odbc-postgresql
 
 USER jovyan
 
