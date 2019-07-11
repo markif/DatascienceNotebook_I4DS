@@ -11,5 +11,6 @@ USER jovyan
 
 # psycopg2 -> postgres-python bindings
 # ipython-sql -> sql magic for python
-# influxdb -> influxDB
-RUN pip install psycopg2 && pip install ipython-sql && pip install influxdb
+# influxdb -> the influxDB dependencies
+# twine -> upload python packages
+RUN pip install psycopg2 ipython-sql influxdb twine
