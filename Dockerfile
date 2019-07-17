@@ -5,7 +5,8 @@ USER root
 # libpq-dev -> postgres library
 # *odbc* -> odbc bindings for R
 # python-influxdb -> influx bindings
-RUN sudo apt-get update && sudo apt-get install -y libpq-dev unixodbc unixodbc-dev odbc-postgresql python-influxdb
+# graphviz* -> dependency of eralchemy
+RUN sudo apt-get update && sudo apt-get install -y libpq-dev unixodbc unixodbc-dev odbc-postgresql python-influxdb graphviz graphviz-dev
 
 USER jovyan
 
@@ -13,4 +14,5 @@ USER jovyan
 # ipython-sql -> sql magic for python
 # influxdb -> the influxDB dependencies
 # twine -> upload python packages
-RUN pip install psycopg2 ipython-sql influxdb twine
+# eralchemy -> generat ER Models
+RUN pip install psycopg2 ipython-sql influxdb twine eralchemy
