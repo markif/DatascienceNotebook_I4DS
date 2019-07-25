@@ -15,4 +15,5 @@ USER jovyan
 # influxdb -> the influxDB dependencies
 # twine -> upload python packages
 # eralchemy -> generat ER Models
-RUN pip install psycopg2 ipython-sql influxdb twine eralchemy
+# jsonpath-ng -> for jsonpath
+RUN pip install psycopg2 ipython-sql influxdb twine eralchemy jsonpath-ng
