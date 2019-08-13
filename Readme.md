@@ -38,6 +38,18 @@ firefox http://127.0.0.1:8888
 
 Run the Jupyter Notebook with disabled authentication (not a recommended practice) as a background process.
 
+## Windows
+
+```bash
+# set the path to your Jupyter Notebook files
+set JUPYTER_FILES=%CD%
+docker run -d i4ds/datascience-notebook --name datascience-notebook --net=dbnet -p 8888:8888 -v "%JUPITER_FILES%:/home/jovyan/work  start-notebook.sh --NotebookApp.token=''
+# start your browser
+firefox http://127.0.0.1:8888
+```
+
+## Linux
+
 ```bash
 # set the path to your Jupyter Notebook files
 JUPYTER_FILES=$PWD
